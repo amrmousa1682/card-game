@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(80px, 280px));
+  gap: 20px;
+  align-content: center;
+  padding: 40px;
+  perspective: 1000px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: repeat(3, minmax(80px, 200px));
+  }
+  .counter {
+    font-size: 26px;
+    top: 10%;
+    left: 4%;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+.counter {
+  position: absolute;
+  color: white;
+  font-size: 32px;
+  top: -4px;
+  left: 0;
+  margin-left: 40px;
+}
+.counter i {
+  color: red;
+  margin-left: 10px;
+  text-shadow: white 1px 1px;
+}
+.container div:not(.end_div):not(.end_div2):not(.counter) {
+  position: relative;
+  display: flex;
+  background-color: white;
+  transform-style: preserve-3d;
+  transition: transform 0.4s;
+  cursor: pointer;
+}
+.container div img:not([id="back"]) {
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+#back {
+  max-width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgb(115 113 113);
+  transform: rotateY(180deg);
+}
+
+.end_div {
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  opacity: 0;
+  transition: 1s;
+}
+.end_div2 {
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  opacity: 0;
+  border-radius: 8%;
+  transition: 0.3s;
+  background-color: #868686;
+}
+.end_div h1 {
+  color: #f07a7a;
+  text-transform: capitalize;
+  text-shadow: 2px 2px black;
+  font-weight: bold;
+  font-size: 90px;
+  width: 100%;
+  text-align: center;
+}
+.end_div2 h1 {
+  color: #af0101;
+  text-transform: capitalize;
+  text-shadow: 2px 2px black;
+  font-weight: bold;
+  font-size: 90px;
+  width: 100%;
+  text-align: center;
+}
+button {
+  background-color: #eee;
+  font-size: 32px;
+  text-transform: capitalize;
+  font-weight: 100;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+#background {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -5;
+}
