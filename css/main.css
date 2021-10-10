@@ -69,6 +69,7 @@ body {
   top: 0;
   background-color: rgb(115 113 113);
   transform: rotateY(180deg);
+  backface-visibility: hidden;
 }
 
 .end_div {
